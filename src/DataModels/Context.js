@@ -11,9 +11,13 @@ export class Context {
   }
 
   _validateParams(jsonString) {
-    if (!jsonString.CSVFields) {
+    if (!jsonString.CSVFields || !Array.isArray(jsonString.CSVFields)) {
       throw new Error('Could not parse CSVFields from config')
     }
+  }
+
+  validateCsvField(entry) {
+    return this.validCsvFields.includes(entry)
   }
 
 }

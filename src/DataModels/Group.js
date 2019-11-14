@@ -2,15 +2,15 @@ import { SubGroup } from './Subgroup'
 import { Hook } from './Hook'
 
 export class Group {
-  constructor(jsonString, validHooks) {
+  constructor(jsonString, context) {
     this._validateParams(jsonString)
 
     this.name = jsonString.Name
     this.subGroups = jsonString.SubGroups ?
-      jsonString.SubGroups.map((item) => new SubGroup(item, validHooks)) :
+      jsonString.SubGroups.map((item) => new SubGroup(item, context)) :
       []
     this.miscHooks = jsonString.MiscHooks ?
-      jsonString.MiscHooks.map((item) => new Hook(item, validHooks)) :
+      jsonString.MiscHooks.map((item) => new Hook(item, context)) :
       []
   }
 

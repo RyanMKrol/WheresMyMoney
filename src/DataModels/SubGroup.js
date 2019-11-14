@@ -2,11 +2,11 @@ import { Hook } from './Hook'
 
 export class SubGroup {
 
-  constructor(jsonString, validHooks) {
+  constructor(jsonString, context) {
     this._validateParams(jsonString)
 
     this.name = jsonString.Name
-    this.hooks = jsonString.Hooks.map((item) => new Hook(item, validHooks))
+    this.hooks = jsonString.Hooks.map((item) => new Hook(item, context))
   }
 
   _validateParams(jsonString) {
