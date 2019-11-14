@@ -1,0 +1,60 @@
+{
+  "Groups": [
+    {
+       "Name":"Food",
+       "SubGroups":[
+          {
+             "Name":"Dominos",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"DOMINOS"
+                }
+             ]
+          },
+          {
+             "Name":"UberEats",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"UBER EATS"
+                },
+                {
+                   "Key":"Description",
+                   "Hook":"UBER *EATS"
+                }
+             ]
+          },
+          {
+             "Name":"McDonalds",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"MCDONALDS"
+                }
+             ]
+          },
+          {
+             "Name":"JustEat",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"Just Eat"
+                }
+             ]
+          }
+       ],
+       "MiscHooks":[
+
+       ]
+    }
+  ],
+  "CSVFields": [
+    "Date",
+    "TransactionType",
+    "Description",
+    "PaidOut",
+    "PaidIn",
+    "NewBalance"
+  ]
+}
