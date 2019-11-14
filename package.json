@@ -1,7 +1,7 @@
 {
   "author": "Ryan Krol",
-  "name": "baseProject",
-  "description": "Intended to be forked for each new Node project.",
+  "name": "WheresMyMoney",
+  "description": "A small project to parse my bank data and see where my money went",
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "start": "npm run-script build && node lib/app.js"
   },
   "dependencies": {
-    "express": "^4.17.0"
+    "csv-parser": "^2.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
