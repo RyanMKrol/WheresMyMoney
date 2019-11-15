@@ -14,10 +14,16 @@ import {
 async function main() {
   const csvEntries = readCsvFile()
   const config = await readConfig()
+
+  const outgoingConfig = config.OutgoingGroups
+  const incomingConfig = config.IncomeGroups
+
   const context = new Context(config)
 
-  const myGroups = config.Groups.map((group) => new Group(group, context))
-  const reportData = buildReport(csvEntries, myGroups)
+  const myOutgoingGroups = outgoingConfig.map((group) => new Group(group, context))
+  const myIncomingGroups = incomingConfig.map((group) => new Group(group, context))
+
+  const reportData = buildReport(csvEntries, myOutgoingGroups, myIncomingGroups)
 
   await writeReport(JSON.stringify(reportData))
 }
