@@ -46,6 +46,15 @@
                    "Hook":"JUST EAT"
                 }
              ]
+          },
+          {
+             "Name":"PizzaHut",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"PIZZA HUT"
+                }
+             ]
           }
        ],
        "MiscHooks":[
