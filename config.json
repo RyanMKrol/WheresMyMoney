@@ -65,6 +65,15 @@
              ]
           },
           {
+             "Name":"CreditCards",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"HALIFAX"
+                }
+             ]
+          },
+          {
              "Name":"DirectDebits",
              "Hooks":[
                 {
