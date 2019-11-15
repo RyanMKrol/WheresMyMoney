@@ -74,6 +74,37 @@
              ]
           },
           {
+             "Name":"GasAndElectricity",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"TOTO ENERGY"
+                },
+                {
+                   "Key":"Description",
+                   "Hook":"EDF ENERGY"
+                }
+             ]
+          },
+          {
+             "Name":"Water",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"THAMES WATER"
+                }
+             ]
+          },
+          {
+             "Name":"CouncilTax",
+             "Hooks":[
+                {
+                   "Key":"TransactionType",
+                   "Hook":"Direct debit BEXLEY LONDON BORO"
+                }
+             ]
+          },
+          {
              "Name":"DirectDebits",
              "Hooks":[
                 {
