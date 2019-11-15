@@ -1,6 +1,10 @@
 import { SubGroup } from './Subgroup'
 import { Hook } from './Hook'
 
+export const DEFAULT_GROUP = {
+  name: "Misc",
+}
+
 export class Group {
   constructor(jsonString, context) {
     this._validateParams(jsonString)
@@ -25,6 +29,14 @@ export class Group {
       const matchedSubGroup = subGroup.isQualifyingEntry(csvItem)
       if (matchedSubGroup) {
         return [true, matchedSubGroup]
+      }
+    }
+
+    if (this.miscHooks) {
+      for (const hook of this.miscHooks) {
+        if (hook.hooks(csvItem)) {
+          return [true, DEFAULT_GROUP]
+        }
       }
     }
 
