@@ -40,12 +40,169 @@
                 {
                    "Key":"Description",
                    "Hook":"Just Eat"
+                },
+                {
+                   "Key":"Description",
+                   "Hook":"JUST EAT"
                 }
              ]
           }
        ],
        "MiscHooks":[
 
+       ]
+    },
+    {
+       "Name":"Bills",
+       "SubGroups":[
+          {
+             "Name":"Mortgage",
+             "Hooks":[
+                {
+                   "Key":"TransactionType",
+                   "Hook":"mortgage"
+                }
+             ]
+          },
+          {
+             "Name":"DirectDebits",
+             "Hooks":[
+                {
+                   "Key":"TransactionType",
+                   "Hook":"Direct debit"
+                },
+                {
+                   "Key":"TransactionType",
+                   "Hook":"Direct Debit"
+                }
+             ]
+          },
+          {
+             "Name":"TescoDelivery",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"TESCO DELIVERY SAVER2"
+                },
+                {
+                   "Key":"Description",
+                   "Hook":"TESCO SUBSCRIPTION"
+                }
+             ]
+          },
+          {
+             "Name":"Netflix",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"NETFLIX.COM"
+                }
+             ]
+          }
+        ],
+       "MiscHooks":[
+
+       ]
+    },
+    {
+       "Name":"Shopping",
+       "SubGroups":[
+          {
+             "Name":"Clothes",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"JACAMO"
+                }
+             ]
+          },
+          {
+             "Name":"iTunes",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"ITUNES.COM/BILL"
+                }
+             ]
+          },
+          {
+             "Name":"Amazon",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"Amazon.co.uk"
+                },
+                {
+                   "Key":"Description",
+                   "Hook":"AMZNMktplace"
+                }
+             ]
+          }
+        ],
+       "MiscHooks":[
+
+       ]
+    },
+    {
+       "Name":"Groceries",
+       "SubGroups":[
+          {
+             "Name":"Tesco",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"TESCO STORE"
+                }
+             ]
+          },
+          {
+             "Name":"PrimeNow",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"Prime Now"
+                }
+             ]
+          }
+        ],
+       "MiscHooks":[
+
+       ]
+    },
+    {
+       "Name":"Travel",
+       "SubGroups":[
+          {
+             "Name":"TFL",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"TFL TRAVEL"
+                }
+             ]
+          },
+          {
+             "Name":"Trainline",
+             "Hooks":[
+                {
+                   "Key":"Description",
+                   "Hook":"TRAINLINE.COM"
+                }
+             ]
+          }
+        ],
+       "MiscHooks":[
+
+       ]
+    },
+    {
+       "Name":"Contactless",
+       "SubGroups":[],
+       "MiscHooks":[
+         {
+            "Key":"TransactionType",
+            "Hook":"Contactless Payment"
+         }
        ]
     }
   ],
