@@ -12,13 +12,16 @@ function buildReport(data, groups) {
   }
 
   for (const csvEntry of data) {
+    const csvOutgoings = extractOutgoings(csvEntry)
+    reportData.Spends += csvOutgoings
+
     const groupResult = _runThroughGroups(reportData, groups, csvEntry)
     reportData = groupResult[1]
 
     if(!groupResult[0]) {
       reportData = _setupReportEntry(reportData, DEFAULT_GROUP)
       reportData[DEFAULT_GROUP.name].Entries.push(_buildEntry(csvEntry))
-      reportData[DEFAULT_GROUP.name].Spends += extractOutgoings(csvEntry)
+      reportData[DEFAULT_GROUP.name].Spends += csvOutgoings
     }
   }
 
@@ -36,6 +39,7 @@ function buildReport(data, groups) {
       }
     }
   }
+
   return reportData
 }
 
@@ -70,7 +74,6 @@ function _addEntry(currentData, groupName, subGroupName, csvEntry) {
   currentData[groupName][subGroupName].Entries.push(entry)
   currentData[groupName][subGroupName].Spends += entry.Price
   currentData[groupName].Spends += entry.Price
-  currentData.Spends += entry.Price
 
   return currentData
 }
