@@ -5,11 +5,11 @@ import {
   readCsvFile,
   readConfig,
   writeReport,
-} from './FileInteractionLib'
+} from './Lib/FileInteractionLib'
 
 import {
   buildReport,
-} from './ReportBuilderLib'
+} from './Lib/ReportBuilderLib'
 
 async function main() {
   const csvEntries = readCsvFile()

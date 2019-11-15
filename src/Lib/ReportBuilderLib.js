@@ -4,7 +4,7 @@ import {
   extractDescription,
 } from './CSVEntryLib'
 
-import { DEFAULT_GROUP } from './DataModels/Group'
+import { DEFAULT_GROUP } from './../DataModels/Group'
 
 function buildReport(data, groups) {
   let reportData = {
