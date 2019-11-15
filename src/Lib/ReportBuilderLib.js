@@ -1,6 +1,6 @@
 import {
   extractDate,
-  extractPrice,
+  extractOutgoings,
   extractDescription,
 } from './CSVEntryLib'
 
@@ -18,10 +18,24 @@ function buildReport(data, groups) {
     if(!groupResult[0]) {
       reportData = _setupReportEntry(reportData, DEFAULT_GROUP)
       reportData[DEFAULT_GROUP.name].Entries.push(_buildEntry(csvEntry))
-      reportData[DEFAULT_GROUP.name].Spends += extractPrice(csvEntry)
+      reportData[DEFAULT_GROUP.name].Spends += extractOutgoings(csvEntry)
     }
   }
 
+  for(const group in reportData) {
+    if (group === 'Spends') continue
+
+    if(reportData[group].Entries) {
+      reportData[group].Entries.sort((a,b) => b.Price - a.Price)
+    } else {
+      for (const subGroup in reportData[group]) {
+        if (subGroup === 'Spends') continue
+        if (reportData[group][subGroup].Entries) {
+          reportData[group][subGroup].Entries.sort((a,b) => b.Price - a.Price)
+        }
+      }
+    }
+  }
   return reportData
 }
 
@@ -45,7 +59,7 @@ function _runThroughGroups(reportData, groups, csvEntry) {
 function _buildEntry(csvEntry) {
   return {
     Date: extractDate(csvEntry),
-    Price: extractPrice(csvEntry),
+    Price: extractOutgoings(csvEntry),
     Description: extractDescription(csvEntry),
   }
 }

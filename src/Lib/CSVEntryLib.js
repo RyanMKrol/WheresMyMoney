@@ -2,7 +2,7 @@ function extractDate(csvItem) {
   return csvItem.Date
 }
 
-function extractPrice(csvItem) {
+function extractOutgoings(csvItem) {
   return _convertPriceToDouble(csvItem.PaidOut)
 }
 
@@ -16,6 +16,6 @@ function _convertPriceToDouble(num) {
 
 export {
   extractDate,
-  extractPrice,
+  extractOutgoings,
   extractDescription,
 }
