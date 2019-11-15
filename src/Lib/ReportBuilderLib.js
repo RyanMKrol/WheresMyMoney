@@ -17,7 +17,7 @@ function buildReport(data, groups) {
 
     if(!groupResult[0]) {
       reportData = _setupReportEntry(reportData, DEFAULT_GROUP)
-      reportData[DEFAULT_GROUP.name].Entries.push(csvEntry)
+      reportData[DEFAULT_GROUP.name].Entries.push(_buildEntry(csvEntry))
       reportData[DEFAULT_GROUP.name].Spends += extractPrice(csvEntry)
     }
   }
@@ -42,12 +42,16 @@ function _runThroughGroups(reportData, groups, csvEntry) {
   return [false, reportData]
 }
 
-function _addEntry(currentData, groupName, subGroupName, csvEntry) {
-  const entry = {
+function _buildEntry(csvEntry) {
+  return {
     Date: extractDate(csvEntry),
     Price: extractPrice(csvEntry),
     Description: extractDescription(csvEntry),
   }
+}
+
+function _addEntry(currentData, groupName, subGroupName, csvEntry) {
+  const entry = _buildEntry(csvEntry)
 
   currentData[groupName][subGroupName].Entries.push(entry)
   currentData[groupName][subGroupName].Spends += entry.Price
