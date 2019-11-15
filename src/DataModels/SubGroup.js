@@ -18,4 +18,8 @@ export class SubGroup {
     }
   }
 
+  isQualifyingEntry(csvItem) {
+     return this.hooks.some((item) => item.hooks(csvItem)) ? this : undefined
+  }
+
 }

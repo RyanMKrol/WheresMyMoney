@@ -19,4 +19,15 @@ export class Group {
       throw new Error('Could not parse name of Group')
     }
   }
+
+  containsEntry(csvItem) {
+    for (const subGroup of this.subGroups) {
+      const matchedSubGroup = subGroup.isQualifyingEntry(csvItem)
+      if (matchedSubGroup) {
+        return [true, matchedSubGroup]
+      }
+    }
+
+    return [false]
+  }
 }

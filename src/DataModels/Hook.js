@@ -18,4 +18,8 @@ export class Hook {
       throw new Error(`Invalid hook - ${jsonString.Key}`)
     }
   }
+
+  hooks(csvItem) {
+    return csvItem[this.key].includes(this.hook)
+  }
 }
