@@ -7,12 +7,13 @@ import {
 
 import { DEFAULT_GROUP } from './../DataModels/Group'
 
+// build the income/outgoing spending report
 function buildReport(data, outgoingGroups, incomingGroups) {
   const outgoingReportData = _sortReportData(
-    addGroupItems(data, outgoingGroups, (item) => extractPaidOut(item))
+    _addGroupItems(data, outgoingGroups, (item) => extractPaidOut(item))
   )
   const incomingReportData = _sortReportData(
-    addGroupItems(data, incomingGroups, (item) => extractPaidIn(item))
+    _addGroupItems(data, incomingGroups, (item) => extractPaidIn(item))
   )
   console.log(incomingReportData)
 
@@ -22,7 +23,8 @@ function buildReport(data, outgoingGroups, incomingGroups) {
   }
 }
 
-function addGroupItems(data, groups, priceFunction) {
+// cycle through CSV data and see which items lie in which groups
+function _addGroupItems(data, groups, priceFunction) {
   let reportData = {
     Amount: 0,
   }
@@ -48,6 +50,7 @@ function addGroupItems(data, groups, priceFunction) {
   return reportData
 }
 
+// sort report data by descending order of amount
 function _sortReportData(reportData) {
   for(const group in reportData) {
     if (group === 'Amount') continue
@@ -67,6 +70,7 @@ function _sortReportData(reportData) {
   return reportData
 }
 
+// loop through groups until we find a qualifying group, or not
 function _runThroughGroups(reportData, groups, csvEntry, priceFunction) {
   for (const group of groups) {
     const containingGroup = group.containsEntry(csvEntry)
@@ -84,6 +88,7 @@ function _runThroughGroups(reportData, groups, csvEntry, priceFunction) {
   return [false, reportData]
 }
 
+// build report data entry
 function _buildEntry(csvEntry, priceFunction) {
   return {
     Date: extractDate(csvEntry),
@@ -92,6 +97,7 @@ function _buildEntry(csvEntry, priceFunction) {
   }
 }
 
+// add entry to report data
 function _addEntry(currentData, groupName, subGroupName, csvEntry, priceFunction) {
   const entry = _buildEntry(csvEntry, priceFunction)
 
@@ -102,6 +108,7 @@ function _addEntry(currentData, groupName, subGroupName, csvEntry, priceFunction
   return currentData
 }
 
+// create the dictionary entry if it doesn't already exist
 function _setupReportEntry(currentData, group, subGroup) {
   const groupName = group.name
   const subGroupName = subGroup ? subGroup.name : undefined
