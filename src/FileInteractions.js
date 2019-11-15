@@ -3,6 +3,7 @@ import fs from 'fs'
 
 const CSV_LOCATION = 'fileToParse.csv'
 const CONFIG_LOCATION = 'config.json'
+const REPORT_DATA_LOCATION = 'reportData.json'
 
 function readCsvFile() {
   let csvEntries = []
@@ -25,7 +26,16 @@ function readConfig() {
   })
 }
 
+function writeReport(reportData) {
+  fs.writeFile(REPORT_DATA_LOCATION, reportData, err => {
+    if (err) {
+      console.log('Error writing file', err)
+    }
+  })
+}
+
 export {
   readCsvFile,
   readConfig,
+  writeReport,
 }
